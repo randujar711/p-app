@@ -12,7 +12,7 @@ function MainPage({user, spaces, money, setMoney}) {
         )}
         {user &&
             user.user_data.map((x)=> {
-            {/* console.log(x) */}
+            
             return(
                 <>
                     <h1>id:{x.id}</h1>
@@ -22,7 +22,7 @@ function MainPage({user, spaces, money, setMoney}) {
             )
         })}
         </div>
-            <ResPage reserve={reserve}/>
+            <ResPage user={user} reserve={reserve}/>
             <Map  reserve={reserve} setReserve={setReserve} money={money} setMoney={setMoney} spaces={spaces}/>
         </div>
     )
