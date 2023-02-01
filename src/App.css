@@ -1,0 +1,20 @@
+.app{
+  width: 100vw;
+  height: 100vh;
+}
+.main-cont{
+  width: 100vw;
+  height: 80vh;
+  padding-right: 5%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 5%;
+  background-color: aqua;
+}
+.header-cont{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
