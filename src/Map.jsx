@@ -30,7 +30,7 @@ function MapWrap({ spaces, reserve, setReserve }) {
                     mapTypeControl: false
                 }}
             >
-            {spaces.map((x)=> { 
+            {spaces?.map((x)=> { 
                 const cord = {lat: parseFloat(x.latitude, 10), lng: parseFloat(x.longitude, 10)}
 
                 return(
