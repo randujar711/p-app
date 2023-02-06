@@ -12,7 +12,7 @@ import LoginIcon from '@mui/icons-material/Login';
 import LogOut from './LogOut';
 import { Link } from 'react-router-dom';
 
-function Header({money, user}){
+function Header({tuser}){
   // console.log(user)
     // Dropdown Menu Fucntions Starts
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -27,14 +27,14 @@ function Header({money, user}){
   return (
     <div className='header-cont'>
       <h1>Title</h1>
-      {!user && (
+      {!tuser && (
         <>
           <Link to={'/login'}><h1>login </h1></Link>
         </>
       )}
-      {user && 
+      {tuser && 
       
-        user.user_data.map((x)=> {
+        tuser.user_data.map((x)=> {
           return(
             <h1>Welcome {x.username}</h1>
           )

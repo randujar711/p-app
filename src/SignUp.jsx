@@ -11,6 +11,7 @@ function SignUp(){
     const [userDetails, setUserDetails] = useState({
         email: "",
         password: "",
+        username: null,
     });
 
     const [error, setError] = useState(null);
