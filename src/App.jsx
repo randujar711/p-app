@@ -46,7 +46,7 @@ function App() {
           console.log("message parsing:", x)
           if (x.type === "confirm_subscription") return;
           const post = x?.message?.post
-          // console.log(post)
+          console.log(post)
           if (post) {
           setSpaces(prevState => {
             return [...prevState, post]

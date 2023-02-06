@@ -70,6 +70,7 @@ function ResPage({ user, reserve }){
                 })
                 let res2 = await updateBuyer.json()
                 console.log(res2)
+                debugger
                 console.log('update buyer ran' )
                 // debugger
                 
