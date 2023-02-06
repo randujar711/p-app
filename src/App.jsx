@@ -27,8 +27,9 @@ function App() {
    const request = async() => {
       let req = await fetch('http://127.0.0.1:3000/parkings')
       let res = await req.json()
-      // console.log(res)
+      console.log(res)
       setSpaces(res)
+      console.log(spaces)
     }
     const connect = async()=> {
       let ws 
@@ -45,7 +46,7 @@ function App() {
           console.log("message parsing:", x)
           if (x.type === "confirm_subscription") return;
           const post = x?.message?.post
-          // console.log(post)
+          console.log(post)
           if (post) {
           setSpaces(prevState => {
             return [...prevState, post]
