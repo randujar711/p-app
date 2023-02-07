@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Enter from './Enter'
 import MainPage from './MainPage'
 import Header from './Header'
 import Login from './Login'
@@ -19,17 +20,28 @@ if (localStorage.token) {
 }
 
 function App() {
-  const[user, setUser] =([logUser])
+  const[tuser, setTuser] =([logUser])
+  const [user, setUser] = useState([])
   const [spaces, setSpaces] = useState([])
-  const [money, setMoney] = useState(500)
-
+  // console.log(tuser.user_data[0].id)
+  useEffect(()=> {
+    const request = async() => {
+      let req = await fetch(`http://127.0.0.1:3000/users/${tuser.user_data[0].id}`)
+      let res = await req.json()
+      // console.log(res)
+      setUser({data:[res]})
+      console.log(user)
+    }
+    request()
+  }, [])
+  
   useEffect(() => {
    const request = async() => {
       let req = await fetch('http://127.0.0.1:3000/parkings')
       let res = await req.json()
-      console.log(res)
+      // console.log(res)
       setSpaces(res)
-      console.log(spaces)
+      // console.log(spaces)
     }
     const connect = async()=> {
       let ws 
@@ -46,10 +58,10 @@ function App() {
           console.log("message parsing:", x)
           if (x.type === "confirm_subscription") return;
           const post = x?.message?.post
-          console.log(post)
+          // console.log(post)
           if (post) {
-          setSpaces(prevState => {
-            return [...prevState, post]
+          setSpaces(() => {
+            return [post]
            })
           }
         }
@@ -61,10 +73,11 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header user={user}/>
+        <Header tuser={tuser} user={user}/>
         <Routes>
           {/* <Route path={'/login'} element={<Login/>}/> */}
-          <Route path ={'/'} element ={<MainPage user={user} spaces={spaces} money={money} setMoney={setMoney}/>}/>
+          <Route path={'/'} element={<Enter/>}/>
+          <Route path ={'/home'} element ={<MainPage user={user} spaces={spaces}/>}/>
           <Route path={'/login'} element={<Login/>}/>
           <Route path={'/signup'} element={<SignUp/>}/>
           <Route path={'/logout'} element={<LogOut/>}/>

@@ -3,39 +3,9 @@
 import { useEffect } from "react"
 
 function ResPage({ user, reserve }){
-
-    //to update buyers balance and ownership
-    // let buyinguser = user.user_data[0].id
-    // console.log(buyinguser)
-    // const updateBuyer = () => {
-    //     console.log('update buyer started')
-    //     let price = reserve[0].price 
-    //     let spot = reserve[0].id
-    //     debugger
-    //     const resComp = async() => {
-    //         let req = await fetch(`http://127.0.0.1:3000/parkings/${reserve[0].id}`, {
-    //             method: 'PATCH', 
-    //             headers:{
-    //                 "Content-Type": "application/json"
-    //             }, 
-    //             body: JSON.stringify({
-    //                 occupied: true, 
-    //                 price: price, 
-    //                 id: spot, 
-    //                 user_id: buyinguser,
-    //             })
-    //         })
-    //         let res = await req.json()
-    //         console.log(price)
-    //         console.log('update buyer ran' )
-    //         debugger
-    //     }
-    //     resComp()
-    // }
-
-    //to update sellers balance
     const paySeller = async() => {
-        let buyinguser = user.user_data[0].id
+        let buyinguser = user.data[0].id
+        console.log(buyinguser)
         try{
             let price = reserve[0].price 
             console.log(reserve[0].user.balance)

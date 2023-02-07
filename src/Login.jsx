@@ -33,6 +33,7 @@ function Login() {
                 setError(error.response.data)
             }
         }
+        window.location.reload(false)
     };
 
 
