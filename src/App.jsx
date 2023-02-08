@@ -1,23 +1,14 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Enter from './Enter'
 import MainPage from './MainPage'
 import Header from './Header'
 import Login from './Login'
 import SignUp from './SignUp'
 import LogOut from './LogOut'
-import jwtDecode from "jwt-decode"
+// import jwtDecode from "jwt-decode"
+import Cookies from 'js-cookie'
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
-
-
-// let logUser;
-// if (localStorage.token) {
-//   const jwt = localStorage.getItem('token')
-//   logUser = jwtDecode(jwt)
-//   console.log(jwt.toString)
-//   console.log(jwt)
-// }
 
 function App() {
   // const[tuser, setTuser] =([logUser])
@@ -42,27 +33,13 @@ function App() {
         headers: {'Authorization': Cookies.get('token')}
       })
       let res = await req.json()
+      console.log(res)
       if (res.user) setUser(res.user)
     }
     if (Cookies.get('token'))
     loadUser()
   }, [])
-  const logout = () => {
-      Cookies.remove('token')
-      setUser(null)
-    }
-    const handleSubmit = async (e) => {
-      e.preventDefault()
-      let formData = new FormData(form.current)
-      let req = await fetch("http://127.0.0.1:3000/login", {
-        method: "POST",
-        body: formData
-      }
-      )
-      let res = await req.json()
-      Cookies.set('token', res.token)
-      setUser(res.user)
-    }
+
   useEffect(() => {
    const request = async() => {
       let req = await fetch('http://127.0.0.1:3000/parkings')
@@ -88,8 +65,8 @@ function App() {
           const post = x?.message?.post
           // console.log(post)
           if (post) {
-          setSpaces(() => {
-            return [post]
+          setSpaces((prevState) => {
+            return [...prevState, post]
            })
           }
         }
@@ -101,12 +78,12 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header/>
+        <Header user={user} />
         <Routes>
           {/* <Route path={'/login'} element={<Login/>}/> */}
           <Route path={'/'} element={<Enter/>}/>
-          <Route path ={'/home'} element ={<MainPage user={user} spaces={spaces}/>}/>
-          <Route path={'/login'} element={<Login/>}/>
+          <Route path ={'/home'} element ={<MainPage user={user} setUser={setUser} spaces={spaces}/>}/>
+          <Route path={'/login'} element={<Login form={form} setUser={setUser}/>}/>
           <Route path={'/signup'} element={<SignUp/>}/>
           <Route path={'/logout'} element={<LogOut/>}/>
         </Routes>

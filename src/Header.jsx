@@ -9,40 +9,41 @@ import * as React from 'react';
 // import MenuItem from '@mui/material/MenuItem';
 // import MenuIcon from '@mui/icons-material/Menu';
 import LoginIcon from '@mui/icons-material/Login';
-import LogOut from './LogOut';
-import { Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
+// import LogOut from './LogOut';
+import { Link, useNavigate } from 'react-router-dom';
 
-function Header({tuser}){
-  // console.log(user)
+function Header({user, setUser}){
+  console.log(user)
     // Dropdown Menu Fucntions Starts
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-    setAnchorEl(null);
-    };
+    // const [anchorEl, setAnchorEl] = React.useState(null);
+    // const open = Boolean(anchorEl);
+    // const handleClick = (event) => {
+    //     setAnchorEl(event.currentTarget);
+    // };
+    // const handleClose = () => {
+    // setAnchorEl(null);
+    // };
     // DropDdwn Menu Functions Ends
+  const logout = () => {
+      Cookies.remove('token')
+      setUser(null)
+      navigate('/')
+
+  }
   return (
     <div className='header-cont'>
       <h1>Title</h1>
-      <Link to={'/login'}><h1>login </h1></Link>
-      {/* {!tuser && (
+      {!user && (
         <>
-          <Link to={'/login'}><h1>login </h1></Link>
+          <h1> Make sure to login</h1>
         </>
-      )} */}
-      {/* {tuser && 
+      )}
+      {user && 
+          <h1>Welcome {user.username}</h1>
+      }
       
-        tuser.user_data.map((x)=> {
-          return(
-            <h1>Welcome {x.username}</h1>
-          )
-        })
-      } */}
-      
-      <Link to={'/logout'}><LoginIcon fontSize='large'/></Link>
+      <Link onClick={logout} to={'/'}><LoginIcon fontSize='large'/></Link>
     </div>
   );
 }

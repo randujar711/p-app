@@ -1,9 +1,17 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import Cookies from "js-cookie"
 
-function CreateSpot({user, newMarker, setNewMarker}){
+function CreateSpot({ user, setUser, newMarker, setNewMarker}){
     const [price, setPrice] = useState()
     const [date, setDate] = useState('')
-    const nsUser = user.data[0].id
+
+    let nsUser = null
+    if (!user){
+        nsUser = null 
+    }else{
+        nsUser = user.id
+    }
+    
     const create = async(e) => {
         e.preventDefault()
         let req = await fetch('http://127.0.0.1:3000/parkings/', {
@@ -20,13 +28,14 @@ function CreateSpot({user, newMarker, setNewMarker}){
                 user_id: nsUser,
             })
         })
-        console.log(nsUser)
+        // console.log(nsUser)
         let res = await req.json()
-        console.log(res)
+        // console.log(res)
         console.log('works')
     }
     return (
         <div style={{width: '10%'}}>
+        {nsUser}
         <h3>to create new spot</h3>
             <form onSubmit={create}>
                 <input type="number" placeholder="price" onChange={(e)=> setPrice(e.target.value)}/>

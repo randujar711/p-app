@@ -4,7 +4,7 @@ import { useEffect } from "react"
 
 function ResPage({ user, reserve }){
     const paySeller = async() => {
-        let buyinguser = user.data[0].id
+        let buyinguser = user.id
         console.log(buyinguser)
         try{
             let price = reserve[0].price 
@@ -23,6 +23,12 @@ function ResPage({ user, reserve }){
                 })
                 let res = await reservation.json()
                 console.log(res)
+                try{
+                    res = JSON.parse(res);
+                }catch(e){
+                    console.log("Invalid Json Response: ", e)
+                    return;
+                }
              console.log('update buyer started')
             //  let price2 = reserve[0].price 
              let spot = reserve[0].id
@@ -45,7 +51,7 @@ function ResPage({ user, reserve }){
                 // debugger
                 
             } catch (error){
-                console.log(error)
+                console.log(error);
             }
         }
     
@@ -58,10 +64,7 @@ function ResPage({ user, reserve }){
                         <div key={x.id}>
                             <h3>{x.price}</h3>
                             <h3>{x.date}</h3>
-                            <button onClick={()=> {
-                                paySeller()
-                                
-                                }}>
+                            <button onClick={()=> {paySeller()}}>
                                 buy now
                             </button>
                         </div>
