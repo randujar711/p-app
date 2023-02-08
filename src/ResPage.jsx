@@ -8,8 +8,9 @@ function ResPage({ user, reserve }){
         console.log(buyinguser)
         try{
             let price = reserve[0].price 
-            console.log(reserve[0].user.balance)
+            console.log(price)
             let owner = reserve[0].user_id
+            console.log(owner)
 
             const reservation = await fetch(`http://127.0.0.1:3000/parkings/${reserve[0].id}`, {
                     method: 'PATCH', 
@@ -22,15 +23,7 @@ function ResPage({ user, reserve }){
                     })
                 })
                 let res = await reservation.json()
-                console.log(res)
-                try{
-                    res = JSON.parse(res);
-                }catch(e){
-                    console.log("Invalid Json Response: ", e)
-                    return;
-                }
              console.log('update buyer started')
-            //  let price2 = reserve[0].price 
              let spot = reserve[0].id
              const updateBuyer = await fetch(`http://127.0.0.1:3000/parkings/${reserve[0].id}`, {
                     method: 'PUT', 
@@ -45,14 +38,13 @@ function ResPage({ user, reserve }){
                     })
                 })
                 let res2 = await updateBuyer.json()
-                console.log(res2)
-                debugger
                 console.log('update buyer ran' )
                 // debugger
-                
-            } catch (error){
+            } 
+            catch (error){
                 console.log(error);
             }
+            // debugger
         }
     
     return(

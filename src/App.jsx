@@ -33,7 +33,7 @@ function App() {
         headers: {'Authorization': Cookies.get('token')}
       })
       let res = await req.json()
-      console.log(res)
+      // console.log(res)
       if (res.user) setUser(res.user)
     }
     if (Cookies.get('token'))

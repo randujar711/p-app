@@ -14,7 +14,7 @@ import Cookies from 'js-cookie';
 import { Link, useNavigate } from 'react-router-dom';
 
 function Header({user, setUser}){
-  console.log(user)
+  // console.log(user)
     // Dropdown Menu Fucntions Starts
     // const [anchorEl, setAnchorEl] = React.useState(null);
     // const open = Boolean(anchorEl);

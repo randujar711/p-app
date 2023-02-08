@@ -6,7 +6,7 @@ function MainPage({user, setUser, spaces}) {
     const [reserve, setReserve] = useState([])
     const [create, setCreate] = useState([])
     const [newMarker, setNewMarker] = useState(null)
-    console.log(user)
+    // console.log(user)
     return(
         <div className='main-cont'>
         <div>
