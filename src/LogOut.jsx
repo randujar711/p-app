@@ -2,10 +2,10 @@ import React from 'react'
 import { useEffect } from 'react'
 
 function LogOut() {
-    useEffect(() => {
-        localStorage.removeItem('token')
-        window.location = '/';
-    }, []);
+    // useEffect(() => {
+    //     localStorage.removeItem('token')
+    //     window.location = '/';
+    // }, []);
 
   return (
     <div>

@@ -52,7 +52,7 @@ const MapWrap = ({ newMarker, setNewMarker, spaces, reserve, setReserve }) => {
       destination: destinationRef.current.value, 
       travelMode: google.maps.TravelMode.DRIVING
     })
-    console.log(results)
+    // console.log(results)
     setDirectionsResponse(results)
     setDistance(results.routes[0].legs[0].distance.text)
     setDuration(results.routes[0].legs[0].duration.text)
@@ -70,8 +70,8 @@ const MapWrap = ({ newMarker, setNewMarker, spaces, reserve, setReserve }) => {
   //the below function reverse geocodes the lat and lng into an address 
   const handleSelectedMarker = (x) => {
     setSelectedId(x.id)
-    console.log(x.latitude)
-    console.log(x.longitude)
+    // console.log(x.latitude)
+    // console.log(x.longitude)
     const latlng = {
       lat:  parseFloat(x.latitude),
       lng: parseFloat(x.longitude),
