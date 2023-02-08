@@ -35,6 +35,7 @@ function App() {
   //   request()
   // }, [])
   const [user, setUser] = useState(null)
+  const form = useRef()
   useEffect(()=> {
     const loadUser = async () => {
       let req = await fetch("http://127.0.0.1:3000/me", {
@@ -46,7 +47,22 @@ function App() {
     if (Cookies.get('token'))
     loadUser()
   }, [])
-
+  const logout = () => {
+      Cookies.remove('token')
+      setUser(null)
+    }
+    const handleSubmit = async (e) => {
+      e.preventDefault()
+      let formData = new FormData(form.current)
+      let req = await fetch("http://127.0.0.1:3000/login", {
+        method: "POST",
+        body: formData
+      }
+      )
+      let res = await req.json()
+      Cookies.set('token', res.token)
+      setUser(res.user)
+    }
   useEffect(() => {
    const request = async() => {
       let req = await fetch('http://127.0.0.1:3000/parkings')
