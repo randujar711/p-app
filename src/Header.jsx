@@ -27,19 +27,20 @@ function Header({tuser}){
   return (
     <div className='header-cont'>
       <h1>Title</h1>
-      {!tuser && (
+      <Link to={'/login'}><h1>login </h1></Link>
+      {/* {!tuser && (
         <>
           <Link to={'/login'}><h1>login </h1></Link>
         </>
-      )}
-      {tuser && 
+      )} */}
+      {/* {tuser && 
       
         tuser.user_data.map((x)=> {
           return(
             <h1>Welcome {x.username}</h1>
           )
         })
-      }
+      } */}
       
       <Link to={'/logout'}><LoginIcon fontSize='large'/></Link>
     </div>

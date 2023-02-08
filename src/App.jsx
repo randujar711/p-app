@@ -11,30 +11,42 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 
 
-let logUser;
-if (localStorage.token) {
-  const jwt = localStorage.getItem('token')
-  logUser = jwtDecode(jwt)
-  console.log(jwt.toString)
-  console.log(jwt)
-}
+// let logUser;
+// if (localStorage.token) {
+//   const jwt = localStorage.getItem('token')
+//   logUser = jwtDecode(jwt)
+//   console.log(jwt.toString)
+//   console.log(jwt)
+// }
 
 function App() {
-  const[tuser, setTuser] =([logUser])
-  const [user, setUser] = useState([])
+  // const[tuser, setTuser] =([logUser])
+  // const [user, setUser] = useState([])
   const [spaces, setSpaces] = useState([])
   // console.log(tuser.user_data[0].id)
+  // useEffect(()=> {
+  //   const request = async() => {
+  //     let req = await fetch(`http://127.0.0.1:3000/users/${tuser.user_data[0].id}`)
+  //     let res = await req.json()
+  //     // console.log(res)
+  //     setUser({data:[res]})
+  //     console.log(user)
+  //   }
+  //   request()
+  // }, [])
+  const [user, setUser] = useState(null)
   useEffect(()=> {
-    const request = async() => {
-      let req = await fetch(`http://127.0.0.1:3000/users/${tuser.user_data[0].id}`)
+    const loadUser = async () => {
+      let req = await fetch("http://127.0.0.1:3000/me", {
+        headers: {'Authorization': Cookies.get('token')}
+      })
       let res = await req.json()
-      // console.log(res)
-      setUser({data:[res]})
-      console.log(user)
+      if (res.user) setUser(res.user)
     }
-    request()
+    if (Cookies.get('token'))
+    loadUser()
   }, [])
-  
+
   useEffect(() => {
    const request = async() => {
       let req = await fetch('http://127.0.0.1:3000/parkings')
@@ -73,7 +85,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header tuser={tuser} user={user}/>
+        <Header/>
         <Routes>
           {/* <Route path={'/login'} element={<Login/>}/> */}
           <Route path={'/'} element={<Enter/>}/>
