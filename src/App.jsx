@@ -28,19 +28,7 @@ function App() {
   const [user, setUser] = useState(null)
   const [money ,setMoney] = useState(null)
   const form = useRef()
-  const handleSubmit = async (e) => {
-      e.preventDefault()
-      let formData = new FormData(form.current)
-      let req = await fetch("http://127.0.0.1:3000/login", {
-        method: "POST",
-        body: formData
-        })
-      let res = await req.json()
-      Cookies.set('token', res.token)
-      setUser(res.user)
-      console.log(user)
-      // navigate('/home')
-    }
+
   useEffect(()=> {
     const loadUser = async () => {
       let req = await fetch("http://127.0.0.1:3000/me", {
@@ -103,7 +91,7 @@ function App() {
           {/* <Route path={'/login'} element={<Login/>}/> */}
           <Route path={'/'} element={<Enter/>}/>
           <Route path ={'/home'} element ={<MainPage user={user} setUser={setUser} spaces={spaces} money={money}/>}/>
-          <Route path={'/login'} element={<Login user={user} form={form} setUser={setUser} handleSubmit={handleSubmit}/>}/>
+          <Route path={'/login'} element={<Login user={user} form={form} setUser={setUser}/>}/>
           <Route path={'/signup'} element={<SignUp/>}/>
           <Route path={'/logout'} element={<LogOut/>}/>
         </Routes>

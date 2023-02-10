@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import http from './utils/http'
 import { Link } from 'react-router-dom';
 
-function Login({logout, setUser, user, form, handleSubmit}) {
+function Login({logout, setUser, user, form}) {
     // const [userDetails, setUserDetails] = useState({
     //     email: "",
     //     password: "",
@@ -36,20 +36,20 @@ function Login({logout, setUser, user, form, handleSubmit}) {
     //     }
     //     window.location.reload(false)
     // };
-    // let navigate = useNavigate();
-    // const handleSubmit = async (e) => {
-    //   e.preventDefault()
-    //   let formData = new FormData(form.current)
-    //   let req = await fetch("http://127.0.0.1:3000/login", {
-    //     method: "POST",
-    //     body: formData
-    //     })
-    //   let res = await req.json()
-    //   Cookies.set('token', res.token)
-    //   setUser(res.user)
-    //   console.log(user)
-    //   navigate('/home')
-    // }
+    let navigate = useNavigate();
+    const handleSubmit = async (e) => {
+      e.preventDefault()
+      let formData = new FormData(form.current)
+      let req = await fetch("http://127.0.0.1:3000/login", {
+        method: "POST",
+        body: formData
+        })
+      let res = await req.json()
+      Cookies.set('token', res.token)
+      setUser(res.user)
+      console.log(user)
+      navigate('/home')
+    }
 
   return (
       <div>
