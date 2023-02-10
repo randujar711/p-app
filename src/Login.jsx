@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import Cookies from 'js-cookie'
 import { useNavigate } from 'react-router-dom'
 import http from './utils/http'
 import { Link } from 'react-router-dom';
 
-function Login({logout, setUser, form}) {
+function Login({logout, setUser, user, form}) {
     // const [userDetails, setUserDetails] = useState({
     //     email: "",
     //     password: "",
@@ -43,11 +43,11 @@ function Login({logout, setUser, form}) {
       let req = await fetch("http://127.0.0.1:3000/login", {
         method: "POST",
         body: formData
-      }
-      )
+        })
       let res = await req.json()
       Cookies.set('token', res.token)
       setUser(res.user)
+      console.log(user)
       navigate('/home')
     }
 
