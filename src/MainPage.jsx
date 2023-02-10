@@ -2,11 +2,11 @@ import { useState } from "react"
 import Map from "./Map"
 import ResPage from "./ResPage"
 import CreateSpot from "./CrePage"
-function MainPage({user, setUser, spaces}) {
+function MainPage({user, setUser, spaces, money}) {
     const [reserve, setReserve] = useState([])
     const [create, setCreate] = useState([])
     const [newMarker, setNewMarker] = useState(null)
-    // console.log(user)
+     
     return(
         <div className='main-cont'>
         <div>
@@ -16,8 +16,8 @@ function MainPage({user, setUser, spaces}) {
         {user &&
             <>
                 <h3>{user.username}</h3>
-                <h3>{user.balance}</h3>
                 <h3>id: {user.id}</h3>
+                <h4>{user.balance}</h4>
             </>
 
         }

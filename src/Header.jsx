@@ -34,6 +34,7 @@ function Header({user, setUser}){
   return (
     <div className='header-cont'>
       <h1>Title</h1>
+      <Link to={'/home'}>home</Link>
       {!user && (
         <>
           <h1> Make sure to login</h1>
