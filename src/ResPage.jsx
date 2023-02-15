@@ -48,15 +48,16 @@ function ResPage({ user, reserve }){
         }
     
     return(
-        <div style={{width: '50%', height: '50%',background:'#fff'}}>
-        <h1>hello</h1>
+        <div className="res-cont">
+
+        <h4>Reservations</h4>
             {
                 reserve.map((x)=> {
                     return(
                         <div key={x.id}>
-                            <h3>{x.price}</h3>
-                            <h3>{x.date}</h3>
-                            <button onClick={()=> {paySeller()}}>
+                            <h5>Price: {x.price}</h5>
+                            <h5>Date: {x.date}</h5>
+                            <button onClick={()=> {paySeller()}} class="btn btn-secondary">
                                 buy now
                             </button>
                         </div>

@@ -6,36 +6,6 @@ import http from './utils/http'
 import { Link } from 'react-router-dom';
 
 function Login({logout, setUser, user, form}) {
-    // const [userDetails, setUserDetails] = useState({
-    //     email: "",
-    //     password: "",
-    // });
-
-    // const [error, setError] = useState(null);
-    // let navigate = useNavigate();
-
-    // const handleChange = (e) => {
-    //     const {name, value} = e.target;
-    //     setUserDetails((prev) => {
-    //         return { ...prev, [name]: value };
-    //     });
-    // };
-
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     try {
-    //         const { data } = await http.post("/login", userDetails)
-    //         localStorage.setItem("token", JSON.stringify(data));
-    //         navigate('/')
-    //         console.log(data)
-    //     } catch (error) {
-    //         console.error(error);
-    //         if (error.response && error.response.status === 400) {
-    //             setError(error.response.data)
-    //         }
-    //     }
-    //     window.location.reload(false)
-    // };
     let navigate = useNavigate();
     const handleSubmit = async (e) => {
       e.preventDefault()
@@ -52,17 +22,17 @@ function Login({logout, setUser, user, form}) {
     }
 
   return (
-      <div>
-        <div>
+      <div className='login-cont'>
+        <img src='src/assets/quickpark-low-resolution-color-logo.png' alt="" />
+        <div className='form-cont'>
               <form ref={form} onSubmit={handleSubmit}>
                 <h2>LOGIN</h2>
                 <p>Email</p>
                 <input type='email' name='email' placeholder='email' /><br />
                     <p className='pform'>Password</p>
                 <input type='password' name='password' placeholder='password' /><br />
-
-
-                <button style={{marginTop:'10px', width:'38%'}} type='submit'>
+                
+                <button class="btn btn-secondary" style={{marginTop:'10%', width:'50%'}} type='submit'>
                     LOGIN 
                 </button>
                 <br />
@@ -75,7 +45,6 @@ function Login({logout, setUser, user, form}) {
           </form>
           
         </div>
-
       </div>
   )
 }

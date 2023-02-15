@@ -3,18 +3,225 @@
   height: 100vh;
 }
 .main-cont{
-  width: 100vw;
+  width: 100%;
   height: 80vh;
-  padding-right: 5%;
+  /* padding-right: 5%; */
   display: flex;
-  justify-content: end;
-  align-items: center;
-  gap: 5%;
-  background-color: aqua;
+  /* justify-content: end; */
+  /* align-items: center; */
+  /* gap: 5%; */
 }
 .header-cont{
   width: 100%;
+  height: 15vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: rgb(47,52,73);
+  color: #fff;
+}
+.title{
+  background: none;
+  color: rgb(220, 220, 220);
+}
+.dropdown-menu{
+  background: rgb(220, 220, 220) !important;
+  width: 20vw;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+.dropdown-menu{
+  padding: 10% !important;
+}
+.dropdown-menu li{
+  margin: 10% 0;
+  font-size: 25px;
+}
+.dropdown-menu .dropdown-item{
+  display: flex;
+  align-items: center;
+  gap: 7%;
+}
+.dropdown-menu .user-info div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.dropdown-menu img{
+  width: 100%;
+  border-radius: 50%;
+  margin-bottom: 3%;
+}
+
+/* Login and Signup Style */
+.login-cont{
+  width: 100%;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10%;
+    background: rgb(47, 52, 73);
+}
+.form-cont{
+  width: 70%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  margin-left: -10%;
+}
+.form-cont form{
+  background: #fff;
+  padding: 5% 10%;
+  border-radius: 16px;
+  font-family: sans-serif;
+}
+.form-cont form p{
+  margin: 16px 0;
+}
+.form-cont form input{
+  padding: 5%;
+  border-radius: 16px;
+  border: 0px solid white;
+}
+.form-cont input:focus{
+  outline: none;
+}
+.login-cont img{
+  width: 50%;
+  position: absolute;
+  z-index: 1;
+  margin-right: -35%;
+  filter: blur(6px);
+    -webkit-filter: blur(6px);
+}
+
+
+/* Main Container Styling */
+.map-cont{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.input-cont{
+  z-index: 5;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  align-self: flex-end;
+  width: 40%;
+  padding: 2% 1%;
+  margin-top: 2.3%;
+  gap: 5px;
+}
+.input-cont input{
+  border-radius: 8px;
+  border: 2px solid rgb(220, 220, 220);
+}
+.input-cont input:focus{
+  outline-color: rgb(220, 220, 220);
+}
+.input-cont button{
+  margin-left: 5px;
+}
+.dropdown-menu{
+  height: 88.9vh;
+}
+
+.res-cont{
+  position: absolute;
+  z-index: 5;
+  width: 20%;
+  height: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.31);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2.7px);
+    -webkit-backdrop-filter: blur(2.7px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  align-self: flex-end;
+  margin-left: 68%;
+}
+.new-cont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  z-index: 5;
+  width: 20%;
+  height: 35%;
+  padding: 4% 2%;
+  margin-left: 20%;
+  background: rgba(255, 255, 255, 0.31);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2.7px);
+  -webkit-backdrop-filter: blur(2.7px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  align-self: center;
+}
+.new-cont form{
+  display: flex;
+  flex-direction: column;
+}
+.new-cont form input{
+  border-radius: 8px;
+  border: 2px solid rgb(220, 220, 220);
+  margin-bottom: 4%;
+}
+.new-cont input:focus {
+  outline-color: rgb(220, 220, 220);
+}
+
+/* Main Page Style */
+
+.main-page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 85vh;
+  padding-top: 3%;
+  background-image: linear-gradient( rgb(47, 52, 73), rgb(220, 220, 220));
+}
+.main-page-cont{
+  display: flex;
+  gap: 5%;
+  width: 70%;
+  height: 50%;
+}
+.main-card{
+  width: 100%;
+  /* background: red; */
+  height: 10vh;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7%;
+  padding: 8%;
+  font-size: 40px;
+  border: 3px solid black;
+}
+.main-card-1{
+  height: 10%;
+  width: 30%;
+  padding: 5%;
+    font-size: 40px;
+  border: 3px solid black;
+    border-radius: 8px;
+  display: flex;
+    justify-content: center;
+    align-items: center;
 }

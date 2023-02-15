@@ -2,11 +2,7 @@ import React from 'react'
 import http from './utils/http'
 import {  useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-
 import { Link } from 'react-router-dom';
-
-
-
 function SignUp(){
     const [userDetails, setUserDetails] = useState({
         email: "",
@@ -27,27 +23,14 @@ function SignUp(){
     const handleSubmit = async(e) => {
         e.preventDefault();
         const { data } = await http.post("/signup", userDetails)
-            //  localStorage.setItem("token", JSON.stringify(data)); 
              navigate('/')
              console.log(data)
-    
-        // try {
-        //     const {data} = await http.post("/signup", userDetails)
-        //     localStorage.setItem("token", data)
-        //     navigate('/')
-        //     console.log(data)
-        // } catch (error) {
-        //     console.error(error);
-        //     if (error.response && error.response.status === 400) {
-        //         setError(error.response.data)
-        //     }
-        // }
-
     };
   return (
-    <div className='maindiv'>
-        <div className='formoutbody'>
-            <form onSubmit={handleSubmit} className='formbody'>
+    <div className='login-cont'>
+        <img src='src/assets/quickpark-low-resolution-color-logo.png' alt="" />
+        <div className='form-cont'>
+            <form onSubmit={handleSubmit}>
                 <h2 className='formlabel'>SIGN UP</h2>
                 <p className='pform'>Email</p>
                 <input type='text' name='email' placeholder='email' onChange={handleChange}/><br />
@@ -57,15 +40,15 @@ function SignUp(){
                 <input type='number' name='balance' placeholder='balance' onChange={handleChange}/><br />
                 <p className='pform'>Username</p>
                 <input type="text" name='username' placeholder='username' onChange={handleChange}/><br /> */}
-                {error && (
+                {/* {error && (
                     <div>
                         <p>{error}</p>
                     </div>
-                )}
-                <button style={{marginTop:'10px', width:'38%'}} variant="contained" type='submit'>Submit</button>
+                )} */}
+                <button style={{marginTop:'10%', width:'50%'}} variant="contained" type='submit' class="btn btn-secondary">Sign Up </button>
                 <hr  style={{width:'80%', margin:'10%'}}/>
                 <div>
-                    <p style={{color:'black'}}>Already a user? <Link to='/'>LOGIN</Link></p>
+                    <p style={{color:'black'}}>Already a user? <Link to='/login'>LOGIN</Link></p>
                 </div>
             </form>
       </div>
