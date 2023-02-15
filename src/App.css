@@ -14,7 +14,58 @@
 }
 .header-cont{
   width: 100%;
+  height: 15vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: rgb(47,52,73);
+  color: #fff;
+}
+.title{
+  background: none;
+  color: rgb(220, 220, 220);
+}
+.login-cont{
+  width: 100%;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10%;
+    background: rgb(47, 52, 73);
+}
+.form-cont{
+  /* background: red; */
+  width: 70%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  margin-left: -10%;
+}
+.form-cont form{
+  background: #fff;
+  padding: 5% 10%;
+  border-radius: 16px;
+  font-family: sans-serif;
+}
+.form-cont form p{
+  margin: 16px 0;
+}
+.form-cont form input{
+  padding: 5%;
+  border-radius: 16px;
+  border: 0px solid white;
+}
+.form-cont input:focus{
+  outline: none;
+}
+.login-cont img{
+  width: 50%;
+  position: absolute;
+  z-index: 1;
+  margin-right: -35%;
+  filter: blur(6px);
+    -webkit-filter: blur(6px);
 }
