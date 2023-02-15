@@ -48,7 +48,7 @@ function SignUp(){
                 <button style={{marginTop:'10%', width:'50%'}} variant="contained" type='submit' class="btn btn-secondary">Sign Up </button>
                 <hr  style={{width:'80%', margin:'10%'}}/>
                 <div>
-                    <p style={{color:'black'}}>Already a user? <Link to='/'>LOGIN</Link></p>
+                    <p style={{color:'black'}}>Already a user? <Link to='/login'>LOGIN</Link></p>
                 </div>
             </form>
       </div>

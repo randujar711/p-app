@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
@@ -58,10 +58,10 @@ function Header({user, setUser}){
         </div>
           <h1>Welcome <mark class='title'>{user.username}</mark></h1>
         </>
-      )
+        )
       }
       
-      <Link onClick={logout} to={'/'}><LoginIcon fontSize='large'/></Link>
+      <Link onClick={logout} to={'/'}><LogoutIcon fontSize='large'/></Link>
     </div>
   );
 }
