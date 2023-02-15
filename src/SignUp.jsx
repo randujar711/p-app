@@ -7,7 +7,8 @@ function SignUp(){
     const [userDetails, setUserDetails] = useState({
         email: "",
         password: "",
-        username: null,
+        username: '',
+        balance: '',
     });
 
     const [error, setError] = useState(null);
@@ -36,11 +37,11 @@ function SignUp(){
                 <input type='text' name='email' placeholder='email' onChange={handleChange}/><br />
                 <p className='pform'>Password</p>
                 <input type='password' name='password' placeholder='password' onChange={handleChange}/><br />
-                {/* <p className='pform'>Balance</p>
+                <p className='pform'>Balance</p>
                 <input type='number' name='balance' placeholder='balance' onChange={handleChange}/><br />
                 <p className='pform'>Username</p>
-                <input type="text" name='username' placeholder='username' onChange={handleChange}/><br /> */}
-                {/* {error && (
+                <input type="text" name='username' placeholder='username' onChange={handleChange}/><br /> 
+                 {/* {error && (
                     <div>
                         <p>{error}</p>
                     </div>

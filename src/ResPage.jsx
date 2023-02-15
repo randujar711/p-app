@@ -53,10 +53,12 @@ function ResPage({ user, reserve }){
         <h4>Reservations</h4>
             {
                 reserve.map((x)=> {
+                    console.log(x)
                     return(
                         <div key={x.id}>
                             <h5>Price: {x.price}</h5>
                             <h5>Date: {x.date}</h5>
+
                             <button onClick={()=> {paySeller()}} class="btn btn-secondary">
                                 buy now
                             </button>
