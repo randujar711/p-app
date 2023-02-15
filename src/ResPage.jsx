@@ -50,7 +50,7 @@ function ResPage({ user, reserve }){
     return(
         <div className="res-cont">
 
-        <h4>Reservations</h4>
+        <h5>Reservations</h5>
             {
                 reserve.map((x)=> {
                     console.log(x)
