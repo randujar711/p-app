@@ -5,6 +5,7 @@ import Header from './Header'
 import Login from './Login'
 import SignUp from './SignUp'
 import LogOut from './LogOut'
+import ResPage from './ResPage'
 // import jwtDecode from "jwt-decode"
 import Cookies from 'js-cookie'
 import './App.css'
@@ -88,7 +89,6 @@ function App() {
       <BrowserRouter>
         <Header user={user} />
         <Routes>
-          {/* <Route path={'/login'} element={<Login/>}/> */}
           <Route path={'/'} element={<Enter/>}/>
           <Route path ={'/home'} element ={<MainPage user={user} setUser={setUser} spaces={spaces} money={money}/>}/>
           <Route path={'/login'} element={<Login user={user} form={form} setUser={setUser}/>}/>

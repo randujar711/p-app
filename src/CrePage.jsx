@@ -34,13 +34,12 @@ function CreateSpot({ user, setUser, newMarker, setNewMarker}){
         console.log('works')
     }
     return (
-        <div style={{width: '10%'}}>
-        {nsUser}
-        <h3>to create new spot</h3>
+        <div className="new-cont">
+            <h5>Selling a New Space?</h5>
             <form onSubmit={create}>
                 <input type="number" placeholder="price" onChange={(e)=> setPrice(e.target.value)}/>
                 <input type="date" onChange={(e)=> setDate(e.target.value)}/>
-                <input type="submit" onClick={create}/>
+                <input type="submit" onClick={create} class="btn btn-secondary"/>
             </form>
         </div>
     )

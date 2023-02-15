@@ -40,7 +40,7 @@ const MapWrap = ({ newMarker, setNewMarker, spaces, reserve, setReserve }) => {
   const originRef = useRef()
   const destinationRef = useRef()
 
-  const mapStyle = {width: '400px', height: '400px'}
+  const mapStyle = {width: '100%', height: '85%', position: 'absolute'}
 
   const calculateRoute = async() => {
     if (originRef.current.value === '' || destinationRef.current.value === ''){
@@ -187,14 +187,14 @@ const PlacesAutoComplete = ({ calculateRoute, destinationRef, originRef, origin,
           className={'combobox-input'} 
           ref={destinationRef}
           />
-          <ComboboxPopover>
-            <ComboboxList style={{color: 'black', fontFamily: 'sans-serif'}}>
+          <ComboboxPopover style={{zIndex: '100'}}>
+            <ComboboxList style={{color: 'black', fontFamily: 'sans-serif', zIndex: '100'}}>
             {
             status === 'OK' && data.map(({place_id, description}) => <ComboboxOption key={place_id} value={description}/>)
             }
             </ComboboxList>
           </ComboboxPopover>
-          <button onClick={calculateRoute}> route </button>
+          <button onClick={calculateRoute} class="btn btn-secondary"> route </button>
       </Combobox>
     </>
   )
