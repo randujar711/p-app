@@ -26,6 +26,7 @@ function SignUp(){
         const { data } = await http.post("/signup", userDetails)
              navigate('/')
              console.log(data)
+
     };
   return (
     <div className='login-cont'>
