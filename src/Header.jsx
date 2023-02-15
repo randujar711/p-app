@@ -25,11 +25,8 @@ function Header({user, setUser}){
             <MenuIcon/>
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <Link to={'/'}><li className="dropdown-item"> main</li></Link>
-            <Link to={'/home'}><li className="dropdown-item"> home</li></Link>
+            <Link to={'/'}><li className="dropdown-item"><DomainIcon/>Main</li></Link>
+            <Link to={'/home'}><li className="dropdown-item"><HomeIcon/>Home</li></Link>
 
           </ul>
         </div>
