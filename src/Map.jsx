@@ -56,8 +56,10 @@ const MapWrap = ({ newMarker, setNewMarker, spaces, reserve, setReserve }) => {
     setDirectionsResponse(results)
     setDistance(results.routes[0].legs[0].distance.text)
     setDuration(results.routes[0].legs[0].duration.text)
+    
   }
-  
+  console.log(distance)
+    console.log(duration)
   const test = (id) => {
     if (reserve.length === 0) {
     setReserve([id])
@@ -102,7 +104,7 @@ const MapWrap = ({ newMarker, setNewMarker, spaces, reserve, setReserve }) => {
   return(
     <div className="map-cont">
       <div className="input-cont">
-        <PlacesAutoComplete calculateRoute={calculateRoute} destinationRef={destinationRef} originRef={originRef} setSelected={setSelected} origin={origin}/>
+        <PlacesAutoComplete calculateRoute={calculateRoute} destinationRef={destinationRef} originRef={originRef} setSelected={setSelected} origin={origin} distance={distance} duration={duration}/>
       </div>
       <GoogleMap 
         center={center}
@@ -143,7 +145,7 @@ const MapWrap = ({ newMarker, setNewMarker, spaces, reserve, setReserve }) => {
   )
 }
 
-const PlacesAutoComplete = ({ calculateRoute, destinationRef, originRef, origin, setSelected }) => {
+const PlacesAutoComplete = ({ calculateRoute, destinationRef, originRef, origin, setSelected, distance, duration }) => {
     const {
     ready,
     value,
@@ -163,7 +165,7 @@ const PlacesAutoComplete = ({ calculateRoute, destinationRef, originRef, origin,
   return (
     <>
       <Combobox onSelect={handleSelect}>
-        <ComboboxInput 
+        <ComboboxInput
           value={value} 
           onChange={(e) => setValue(e.target.value)} 
           disabled={!ready} 
@@ -171,7 +173,7 @@ const PlacesAutoComplete = ({ calculateRoute, destinationRef, originRef, origin,
           placeholder='Search Origin'
             ref={originRef}
           />
-          <ComboboxPopover>
+          <ComboboxPopover  style={{zIndex: '100'}}>
             <ComboboxList style={{color: 'black', fontFamily: 'sans-serif'}}>
             {
             status === 'OK' && data.map(({place_id, description}) => <ComboboxOption key={place_id} value={description}/>)
@@ -187,7 +189,7 @@ const PlacesAutoComplete = ({ calculateRoute, destinationRef, originRef, origin,
           className={'combobox-input'} 
           ref={destinationRef}
           />
-          <ComboboxPopover style={{zIndex: '100'}}>
+          <ComboboxPopover>
             <ComboboxList style={{color: 'black', fontFamily: 'sans-serif', zIndex: '100'}}>
             {
             status === 'OK' && data.map(({place_id, description}) => <ComboboxOption key={place_id} value={description}/>)
@@ -196,6 +198,11 @@ const PlacesAutoComplete = ({ calculateRoute, destinationRef, originRef, origin,
           </ComboboxPopover>
           <button onClick={calculateRoute} class="btn btn-secondary"> route </button>
       </Combobox>
+      <div style={{display: 'flex', gap: '5px', flexDirection: 'column'}}>
+        <h5 style={{fontWeight: '900'}}>Duration: {duration}</h5>
+        <h5 style={{fontWeight: '900'}}>Distance: {distance}</h5>
+      </div>
+      
     </>
   )
 }

@@ -29,11 +29,11 @@ function SignUp(){
 
     };
   return (
-    <div className='login-cont'>
+    <div className='login-cont signup-cont'>
         <img src='src/assets/quickpark-low-resolution-color-logo.png' alt="" />
-        <div className='form-cont'>
+        <div className='form-cont signup-form-cont'>
             <form onSubmit={handleSubmit}>
-                <h2 className='formlabel'>SIGN UP</h2>
+                <h3 className='formlabel'>SIGN UP</h3>
                 <p className='pform'>Email</p>
                 <input type='text' name='email' placeholder='email' onChange={handleChange}/><br />
                 <p className='pform'>Password</p>
