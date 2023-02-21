@@ -37,8 +37,8 @@ function CreateSpot({ user, setUser, newMarker, setNewMarker}){
         <div className="new-cont">
             <h5>Selling a New Space?</h5>
             <form onSubmit={create}>
-                <input type="number" placeholder="price" onChange={(e)=> setPrice(e.target.value)}/>
-                <input type="date" onChange={(e)=> setDate(e.target.value)}/>
+                <input style={{width: '50%'}} type="number" placeholder="price" onChange={(e)=> setPrice(e.target.value)}/>
+                <input style={{width: '50%'}} type="date" onChange={(e)=> setDate(e.target.value)}/>
                 <input type="submit" onClick={create} class="btn btn-secondary"/>
             </form>
         </div>

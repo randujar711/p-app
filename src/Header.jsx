@@ -20,16 +20,15 @@ function Header({user, setUser}){
     <div className='header-cont' style={{boxDecorationBreak: '0px 10px -14px 14px #FFF'}}>
       {!user && (
         <>
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <MenuIcon/>
-          </button>
-          <ul class="dropdown-menu">
-            <Link to={'/'}><li className="dropdown-item"><DomainIcon/>Main</li></Link>
-            <Link to={'/home'}><li className="dropdown-item"><HomeIcon/>Home</li></Link>
-
-          </ul>
-        </div>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <MenuIcon/>
+            </button>
+            <ul class="dropdown-menu">
+              <Link to={'/'}><li className="dropdown-item"><DomainIcon/>Main</li></Link>
+              <Link to={'/home'}><li className="dropdown-item"><HomeIcon/>Home</li></Link>
+            </ul>
+          </div>
           <h1><mark class='title'>quick</mark>Park</h1>
         </>
       )}
@@ -43,8 +42,10 @@ function Header({user, setUser}){
             <li className='user-info'>
               <div>
                 <img src="src/assets/quickpark-low-resolution-color-logo.png" alt="" />
-                <h3>User: {user.username}</h3>
-                <h4 style={{display: 'flex', alignItems: 'center'}}>Balance: <AttachMoneyIcon/>{user.balance}</h4>
+                <div>
+                  <h4>User: {user.username}</h4>
+                  <h4 style={{display: 'flex', alignItems: 'center'}}>Balance: <AttachMoneyIcon/><mark style={{color: 'green', background: 'none'}}>{user.balance}</mark></h4>
+                </div>
               </div>
             </li>
             <hr style={{width: '80%'}}/>
@@ -58,7 +59,7 @@ function Header({user, setUser}){
         )
       }
       
-      <Link onClick={logout} to={'/'}><LogoutIcon fontSize='large'/></Link>
+      <Link style={{color: '#fff', margin: '0 5%'}} onClick={logout} to={'/'}><LogoutIcon fontSize='large'/></Link>
     </div>
   );
 }
