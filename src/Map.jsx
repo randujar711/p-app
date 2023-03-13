@@ -72,8 +72,6 @@ const MapWrap = ({ newMarker, setNewMarker, spaces, reserve, setReserve }) => {
   //the below function reverse geocodes the lat and lng into an address 
   const handleSelectedMarker = (x) => {
     setSelectedId(x.id)
-    // console.log(x.latitude)
-    // console.log(x.longitude)
     const latlng = {
       lat:  parseFloat(x.latitude),
       lng: parseFloat(x.longitude),

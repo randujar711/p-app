@@ -39,12 +39,10 @@ function ResPage({ user, reserve }){
                 })
                 let res2 = await updateBuyer.json()
                 console.log('update buyer ran' )
-                // debugger
             } 
             catch (error){
                 console.log(error);
             }
-            // debugger
         }
     
     return(

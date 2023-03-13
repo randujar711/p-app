@@ -28,9 +28,7 @@ function CreateSpot({ user, setUser, newMarker, setNewMarker}){
                 user_id: nsUser,
             })
         })
-        // console.log(nsUser)
         let res = await req.json()
-        // console.log(res)
         console.log('works')
     }
     return (

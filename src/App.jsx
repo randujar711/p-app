@@ -12,20 +12,7 @@ import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
-  // const[tuser, setTuser] =([logUser])
-  // const [user, setUser] = useState([])
   const [spaces, setSpaces] = useState([])
-  // console.log(tuser.user_data[0].id)
-  // useEffect(()=> {
-  //   const request = async() => {
-  //     let req = await fetch(`http://127.0.0.1:3000/users/${tuser.user_data[0].id}`)
-  //     let res = await req.json()
-  //     // console.log(res)
-  //     setUser({data:[res]})
-  //     console.log(user)
-  //   }
-  //   request()
-  // }, [])
   const [user, setUser] = useState(null)
   const [money ,setMoney] = useState(null)
   const form = useRef()
@@ -51,9 +38,7 @@ function App() {
    const request = async() => {
       let req = await fetch('http://127.0.0.1:3000/parkings')
       let res = await req.json()
-      // console.log(res)
       setSpaces(res)
-      // console.log(spaces)
     }
     const connect = async()=> {
       let ws 
@@ -71,7 +56,6 @@ function App() {
           if (x.type === "confirm_subscription") return;
           const post = x?.message?.post
           const balance = x?.message?.user?.balance
-          // console.log(x.message.user.balance)
           if (post) {
           setSpaces((prevState) => {
             return [...prevState, post]
@@ -83,7 +67,6 @@ function App() {
     request()
     connect()
   }, [])
-// console.log(money)
   return (
     <div className="App">
       <BrowserRouter>
