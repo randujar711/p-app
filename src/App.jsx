@@ -32,7 +32,7 @@ function App() {
     }
     if (Cookies.get('token')) 
     loadUser()
-  }, [])
+  }, [money])
 
 
   useEffect(() => {
