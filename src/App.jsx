@@ -20,18 +20,19 @@ function App() {
   useEffect(()=> {
     const loadUser = async () => {
       let req = await fetch("http://127.0.0.1:3000/me", {
-        headers: {'Authorization': Cookies.get('token')}
+        headers: {'Authorization': `Bearer ${Cookies.get('token')}`}
       })
       let res = await req.json()
-      if (res.user){
-        setUser(res.user) 
+      console.log(res)
+      if (res.username){
+        setUser(res) 
       }else{
         return 
       }
     }
     if (Cookies.get('token')) 
     loadUser()
-  }, [money])
+  }, [])
 
 
   useEffect(() => {
