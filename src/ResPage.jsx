@@ -44,9 +44,34 @@ function ResPage({ user, reserve }){
                 console.log(error);
             }
         }
+
+        const chat = async() => {
+        try{
+            const buyinguser = user.id
+            console.log('buying', buyinguser)
+            let owner = reserve[0].user_id
+            console.log('owner', owner)
+            let req = await fetch('http://127.0.0.1:3000/createChat', {
+                method: 'POST', 
+                headers: {
+                    'Content-Type': 'application/json'
+                }, 
+                body: JSON.stringify({
+                    user_id_1: buyinguser, 
+                    user_id_2: owner
+                })
+            })
+            let res = await req.json()
+            console.log(res)
+            }
+        catch(error){
+            console.log(error)
+        }
+        }
+
     
     return(
-        <div className="res-cont">
+        <div className="res-cont" >
 
         <h5>Reservations</h5>
             {
@@ -64,7 +89,9 @@ function ResPage({ user, reserve }){
                     )
                 })
             }
+            <button onClick={chat}> chat</button>
         </div>
+
     )
 }
 

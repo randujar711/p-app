@@ -87,6 +87,7 @@ const MapWrap = ({ newMarker, setNewMarker, spaces, reserve, setReserve }) => {
       lat: event.latLng.lat(),
       lng: event.latLng.lng()
     })
+    console.log(newMarker)
   }//this creates a marker on the map 
 
   const handleDrag = (event) => {
