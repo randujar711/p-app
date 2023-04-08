@@ -44,7 +44,7 @@ function App() {
     const connect = async()=> {
       let ws 
       ws = new WebSocket('ws://localhost:3000/cable')
-      ws.onopen =() => {
+      ws.onopen = () => {
         console.log('ws is on')
         ws.send(JSON.stringify({ "command": "subscribe", "identifier": `{\"channel\": \"LiveFeedChannel\"}` }))
       }

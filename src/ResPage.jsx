@@ -1,7 +1,7 @@
 // import { useParams } from 'react-router-dom'
 
 import { useEffect } from "react"
-
+import Cookies from "js-cookie"
 function ResPage({ user, reserve }){
     const paySeller = async() => {
         let buyinguser = user.id
@@ -48,13 +48,14 @@ function ResPage({ user, reserve }){
         const chat = async() => {
         try{
             const buyinguser = user.id
-            console.log('buying', buyinguser)
+            // console.log('buying', buyinguser)
             let owner = reserve[0].user_id
-            console.log('owner', owner)
+            // console.log('owner', owner)
             let req = await fetch('http://127.0.0.1:3000/createChat', {
                 method: 'POST', 
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${Cookies.get('token')}`
                 }, 
                 body: JSON.stringify({
                     user_id_1: buyinguser, 
