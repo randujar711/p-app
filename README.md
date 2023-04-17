@@ -14,7 +14,7 @@
 
 
 <h3 align="center">User Profile</h3>
-<img src="https://github.com/randujar711/p-app/tree/main/src/assets" alt="Home Page"/>
+<img src="https://github.com/randujar711/p-app/blob/main/src/assets/User%20Profile.jpg" alt="Home Page"/>
 
 <h3 align="center">Navigation Feature Page</h3>
 <img src="https://github.com/randujar711/p-app/blob/main/src/assets/Navigation.jpg" alt="Login Page"/>
